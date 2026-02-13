@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import DndBox from './components/dndbox'
+import DndBox from './components/Dndbox'
 
 function App() {
   const [count, setCount] = useState(0)
