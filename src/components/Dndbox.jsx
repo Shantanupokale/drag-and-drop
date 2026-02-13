@@ -2,11 +2,28 @@
 import React, { useRef, useState } from "react";
 
 const intialstate = {
-  Todo: ["read book", "write code", "drink water", "fix merge requests"],
-  InProgress: ["working on dnd project", "learning nodejs"],
-  Completed: ["js course lectures", "setting-up project"],
-};
+  Todo: [
+    "read book",
+    "write code",
+    "drink water",
+    "clean desk",
+    "watch tutorial",
+  ],
 
+  InProgress: [
+    "working on dnd project",
+    "learning nodejs",
+    "building small feature",
+  ],
+
+  Completed: [
+    "js course lectures",
+    "setting-up project",
+    "installed dependencies",
+    "created project folder",
+    "finished small task",
+  ],
+};
 const DndBox = () => {
   const [data, setData] = useState(intialstate);
 
@@ -48,8 +65,8 @@ const DndBox = () => {
     <div className=" flex flex-row justify-around  ">
       {Object.keys(data).map((column) => {
         return (
-          <div
-            className=" mt-8 py-8  px-4 sm:px-8 border border-black bg-gray-200 "
+<div
+  className="mt-8 py-8 px-4 sm:px-8 border border-black bg-gray-200  w-80 min-h-[400px] rounded-lg shadow-md"
             onDrop={(e) => handleDrop(e, column)}
             onDragOver={handleDragOver}
           >
@@ -57,7 +74,7 @@ const DndBox = () => {
             {data[column].map((item, idx) => {
               return (
                 <div
-                  className={`border p-4 mb-1 text-center ${ column === "Todo" ? "bg-white"  : column === "InProgress"  ? "bg-yellow-200" : "bg-green-300" }`}
+                  className={`border p-4 mb-1 text-center rounded-md ${ column === "Todo" ? "bg-white"  : column === "InProgress"  ? "bg-yellow-200" : "bg-green-300" }`}
                   key={idx}
                   onDragStart={(e) => handleDragStart(e, idx, column)}
                   onDragEnd={handleDragEnd}
